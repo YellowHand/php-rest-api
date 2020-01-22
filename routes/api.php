@@ -1,5 +1,15 @@
 <?php
 
+Route::get('hello', function () {
+
+  $result = ['result' => 'OK'];
+
+  $response = \Response::json($result)->setStatusCode(200, 'Success');
+
+  return $response;
+
+});
+
 Route::post('signUp', function(Request $request){ // [1]
 
   // [2]
