@@ -14,9 +14,6 @@ class AuthBasic
      * @param  \Closure  $next
      * @return mixed
      */
-    Auth::routes(['signUp'=>false]);
-    Auth::routes(['signIn'=>false]);
-    Auth::routes(['register'=>false]);
     public function handle($request, Closure $next)
     {
         if(Auth::onceBasic()){
