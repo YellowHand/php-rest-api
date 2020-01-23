@@ -10,6 +10,7 @@ Route::get('hello', function () {
 
 });
 
+Auth::routes(['register'=>false]);
 Auth::routes(['signUp'=>false]);
 Route::post('signUp', function(Request $request){ // [1]
 
@@ -65,7 +66,7 @@ Route::post('signUp', function(Request $request){ // [1]
   }
 
 });
-
+Auth::routes(['register'=>false]);
 Auth::routes(['login'=>false]);
 Route::post('login', function(Request $request){
 
