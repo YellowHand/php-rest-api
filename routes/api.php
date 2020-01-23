@@ -9,7 +9,7 @@ Route::get('hello', function () {
   return $response;
 
 });
-Auth::routes(['api/signUp'=>false]);
+Auth::routes(['signUp'=>false]);
 Route::post('signUp', function(Request $request){ // [1]
 
   // [2]
