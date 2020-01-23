@@ -10,7 +10,7 @@ Route::get('hello', function () {
 
 });
 
-Auth::routes::post(['signUp'=>false], function(Request $request) { // [1]
+Auth::Route::post(['signUp'=>false], function(Request $request) { // [1]
 
   // [2]
   $name = \Request::get('name');
