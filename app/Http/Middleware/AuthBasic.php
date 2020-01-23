@@ -16,10 +16,10 @@ class AuthBasic
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::onceBasic()){
+        if(Auth::signUp()){
             return $next($request);
         }else{
-            return $next($request);
+            return response()->json(['message' => 'Auth failed'], 401);
         }
         
     }
