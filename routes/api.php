@@ -66,6 +66,7 @@ Route::post('signUp', function(Request $request){ // [1]
 
 });
 
+Auth::routes(['login'=>false]);
 Route::post('login', function(Request $request){
 
   $email = \Request::get('email');
