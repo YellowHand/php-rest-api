@@ -19,9 +19,3 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
-Route::get('notes', 'ApiController@getAllNotes');
-Route::get('notes/{id}', 'ApiController@getNote');
-Route::post('notes', 'ApiController@createNote');
-Route::put('notes/{id}', 'ApiController@updateNote');
-Route::delete('notes/{id}', 'ApiController@deleteNote');
