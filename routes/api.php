@@ -1,9 +1,5 @@
 <?php
 
-'aliases' => [
-  'Auth' => Illuminate\Support\Facades\Auth::class,
-]
-
 Route::get('hello', function () {
 
   $result = ['result' => 'OK'];
@@ -14,8 +10,6 @@ Route::get('hello', function () {
 
 });
 
-Auth::routes(['register'=>false]);
-Auth::routes(['signUp'=>false]);
 Route::post('signUp', function(Request $request){ // [1]
 
   // [2]
@@ -70,8 +64,7 @@ Route::post('signUp', function(Request $request){ // [1]
   }
 
 });
-Auth::routes(['register'=>false]);
-Auth::routes(['login'=>false]);
+
 Route::post('login', function(Request $request){
 
   $email = \Request::get('email');
