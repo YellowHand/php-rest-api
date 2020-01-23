@@ -17,10 +17,9 @@ class AuthBasic
     public function handle($request, Closure $next)
     {
         if(Auth::routes(['signUp'=>True])){
-            return response()->json(['message' => 'Auth failed'], 401);
-        }else{
             return $next($request);
+        }else if(Auth::onceBasic()){
+            return response()->json(['message' => 'Auth failed'], 401);
         }
-        
     }
 }
