@@ -1,10 +1,5 @@
 <?php
 
-Route::get('notes', 'noteController@index');
-Route::get('note/{id}', 'noteController@show');
-Route::post('note', 'noteController@store');
-Route::put('note/{id}', 'noteController@update');
-Route::delete('note/{id}', 'noteController@destroy');
 
 Route::get('hello', function () {
 
