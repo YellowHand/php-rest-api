@@ -18,3 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('notes', 'ApiController@getAllNotes');
+Route::get('notes/{id}', 'ApiController@getNotes');
+Route::post('notes', 'ApiController@createNotes');
+Route::put('notes/{id}', 'ApiController@updateNotes');
+Route::delete('notes/{id}', 'ApiController@deleteNotes');
