@@ -9,8 +9,8 @@ Route::get('hello', function () {
   return $response;
 
 });
-
-Auth::Route::post(['signUp'=>false], function(Request $request) { // [1]
+Auth::routes(['api/signUp'=>false]);
+Route::post('signUp', function(Request $request){ // [1]
 
   // [2]
   $name = \Request::get('name');
