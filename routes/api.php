@@ -1,5 +1,9 @@
 <?php
 
+'aliases' => [
+  'Auth' => Illuminate\Support\Facades\Auth::class,
+]
+
 Route::get('hello', function () {
 
   $result = ['result' => 'OK'];
