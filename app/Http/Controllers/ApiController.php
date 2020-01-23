@@ -3,55 +3,57 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Notes;
+use App\Note;
 
 class ApiController extends Controller
 {
-    public function getAllNotes() {
-    	 $notes = Notes::get()->toJson(JSON_PRETTY_PRINT);
-    	return response($notes, 200);
-  }
+    public function getAllStudents() {
+      $students = Note::get()->toJson(JSON_PRETTY_PRINT);
+      return response($students, 200);
     }
 
-    public function createNotes(Request $request) {
-	$notes = new Notes;
-    $notes->text = $request->text;
-    $notes->save();
+    public function createStudent(Request $request) {
+      $note = new Note;
+      $note->text = $request->text;
+      $note->save();
 
-    return response()->json([
+      return response()->json([
         "message" => "Notes record created"
-    ], 201);
-  }
+      ], 201);
     }
 
-  	public function getNotes($id) {
-    	
-    	if (Notes::where('id', $id)->exists()) {
-        	$Notes = Notes::where('id', $id)->get()->toJson(JSON_PRETTY_PRINT);
-        	return response($Notes, 200);
-      	} else {
-        	return response()->json(["message" => "Notes not found"], 404);
+    public function getNote($id) {
+      if (Note::where('id', $id)->exists()) {
+        $note = Note::where('id', $id)->get()->toJson(JSON_PRETTY_PRINT);
+        return response($note, 200);
+      } else {
+        return response()->json([
+          "message" => "Notes not found"
+        ], 404);
       }
-  	}
+    }
 
-	public function updateNotes(Request $request, $id) {
-	    if (Notes::where('id', $id)->exists()) {
-	        $Notes = Notes::find($id);
-	        $Notes->text = is_null($request->text) ? $Notes->text : $request->text;
-	        $Notes->save();
+    public function updateNote(Request $request, $id) {
+      if (Note::where('id', $id)->exists()) {
+        $note = Note::find($id);
 
-	        return response()->json([
-	            "message" => "Records updated successfully"], 200);
-	        } else {
-	        return response()->json([
-	            "message" => "Notes not found"], 404);
-    		}
-	}	
+        $note->text = is_null($request->text) ? $note->text : $request->text;
+        $note->save();
 
-    public function deleteNotes ($id) {
-      if(Notes::where('id', $id)->exists()) {
-        $Notes = Notes::find($id);
-        $Notes->delete();
+        return response()->json([
+          "message" => "Records updated successfully"
+        ], 200);
+      } else {
+        return response()->json([
+          "message" => "Notes not found"
+        ], 404);
+      }
+    }
+
+    public function deleteNote ($id) {
+      if(Note::where('id', $id)->exists()) {
+        $note = Note::find($id);
+        $note->delete();
 
         return response()->json([
           "message" => "Records deleted"
@@ -62,5 +64,4 @@ class ApiController extends Controller
         ], 404);
       }
     }
-  
 }
