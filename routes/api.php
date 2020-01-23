@@ -1,5 +1,11 @@
 <?php
 
+Route::get('students', 'ApiController@getAllStudents');
+Route::get('students/{id}', 'ApiController@getStudent');
+Route::post('students', 'ApiController@createStudent');
+Route::put('students/{id}', 'ApiController@updateStudent');
+Route::delete('students/{id}', 'ApiController@deleteStudent');
+
 Route::get('hello', function () {
 
   $result = ['result' => 'OK'];
