@@ -15,7 +15,7 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('text');
+            $table->text('text');
             $table->timestamps();
             $table->string('email');
             $table->foreign('email')->references('email')->on('users')->onDelete('cascade');
