@@ -108,3 +108,5 @@ Route::post('login', function(Request $request){
   }
 
 });
+
+Route::resource('posts', 'API\PostAPIController');
