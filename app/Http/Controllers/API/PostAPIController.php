@@ -38,7 +38,7 @@ class PostAPIController extends APIBaseController
         error_log($email);
         $posts = Post::where('email', '=', $email)->get();
 
-        return $this->sendResponse($posts->toArray(), 'Cos');
+        return $this->sendResponse($posts->toArray(), 'Posts Retrieved successfully');
 
     }
 

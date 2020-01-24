@@ -16,11 +16,14 @@ class AuthBasic
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::onceBasic()){
+        $url = $request->fullUrl();
+        if (strpos($url, '/api/login') !== false || strpos($url, '/api/signUp') !== false) {
             return $next($request);
+        }
+        if(Auth::onceBasic()){
+            return response()->json(['message' => 'Auth failed'], 401);
         }else{
             return $next($request);
         }
-        
     }
 }
