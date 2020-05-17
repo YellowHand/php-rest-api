@@ -4,14 +4,14 @@ Projekt wykonany przy użyciu PHP + Laraver framework
 
 Wskazana zostanie implementacja kluczowa dla projektu, z pominięciem plików wygenerowanych przez narzędzia budujące i inne.
 
-# /routers/api.php - kontroler obsługujący logowanie i rejestrację użytkowników
+## /routers/api.php - kontroler obsługujący logowanie i rejestrację użytkowników
 
-# /app - główna logika apikacji
+## /app - główna logika apikacji
 
 Post.php - model / obiekt transferowy notatki
 User.php - model / obiekt transferowy użytkownika
 
-# ./HTTP - obsługa zapytań HTTP związanych z notatkami
+## ./HTTP - obsługa zapytań HTTP związanych z notatkami
 
 *./Controllers/API* 
 
